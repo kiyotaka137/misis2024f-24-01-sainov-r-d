@@ -30,10 +30,9 @@ rational& rational::operator-=(const rational& rhs) noexcept { return *this; };
 rational& rational::operator*=(const rational& rhs) noexcept { return *this; };
 rational& rational::operator/=(const rational& rhs) { return *this; };
 
-rational& rational::operator+=(const int32_t rhs) noexcept { return operator+=(rational(rhs)); };
-rational& rational::operator-=(const int32_t rhs) noexcept { return operator-=(rational(rhs)); };
-rational& rational::operator*=(const int32_t rhs) noexcept { return operator*=(rational(rhs)); };
-rational& rational::operator/=(const int32_t rhs) { return operator/=(rational(rhs)); };
+rational& rational::operator+=(const int rhs) noexcept { return operator+=(rational(rhs)); };
+rational& rational::operator-=(const int rhs) noexcept { return operator-=(rational(rhs)); };
+rational& rational::operator*=(const int rhs) noexcept { return operator*=(rational(rhs)); };
+rational& rational::operator/=(const int rhs) { return operator/=(rational(rhs)); };
 std::ostream& operator<<(std::ostream& ostrm, const rational& rhs) noexcept { return ostrm; }
-
 std::istream& operator>>(std::istream& istrm, rational& rhs) noexcept { return istrm; }
