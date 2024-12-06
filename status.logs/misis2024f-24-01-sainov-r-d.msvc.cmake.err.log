@@ -27,3 +27,40 @@ CMake Warning (dev) in CMakeLists.txt:
   information run "cmake --help-policy CMP0000".
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
+CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:639 (_add_library):
+  Cannot find source file:
+
+    rational.hpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
+  .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
+  .f95 .f03 .hip .ispc
+Call Stack (most recent call first):
+  prj.lab/rational/CMakeLists.txt:1 (add_library)
+
+
+CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:639 (_add_library):
+  Cannot find source file:
+
+    arrat.h
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
+  .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
+  .f95 .f03 .hip .ispc
+Call Stack (most recent call first):
+  prj.lab/arrayt/CMakeLists.txt:1 (add_library)
+
+
+CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:639 (_add_library):
+  No SOURCES given to target: rational
+Call Stack (most recent call first):
+  prj.lab/rational/CMakeLists.txt:1 (add_library)
+
+
+CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:639 (_add_library):
+  No SOURCES given to target: arrayt
+Call Stack (most recent call first):
+  prj.lab/arrayt/CMakeLists.txt:1 (add_library)
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
