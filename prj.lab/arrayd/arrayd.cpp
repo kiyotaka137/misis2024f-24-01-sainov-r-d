@@ -46,3 +46,23 @@ void ArrayD::Resize(std::ptrdiff_t size) {
 	data_ = newdata;
 	capacity_ = size;
 }
+
+void ArrayD::Insert(std::ptrdiff_t ind, const double& elem)
+{
+	if (index > size_) throw(std::exception("out of range"));
+	if (size_ == capacity_) {
+		(*this).Resize(capacity_ * 2);
+	}
+	for(ptrdiff_t i =0;i<)
+	
+
+}
+
+void ArrayD::Remove(const std::ptrdiff_t ind)
+{
+	if (index > size_) throw(std::exception("out of range"));
+	for (ptrdiff_t i = ind; i < size_ - 1; i++) {
+		data[i] = data[i + 1];
+	}
+	size_ -= 1;
+}
