@@ -1,1 +1,1 @@
-add_library(complex complex.cpp complex.hpp)
+add_library(complex complex.cpp complex.h)

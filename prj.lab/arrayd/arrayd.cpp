@@ -42,6 +42,7 @@ void ArrayD::Resize(std::ptrdiff_t size) {
 	for (std::ptrdiff_t i = 0; i < size_; i++) {
 		newdata[i] = data_[i];
 	}
+	delete[] data_;
 	size_ = size;
 	data_ = newdata;
 	capacity_ = size;

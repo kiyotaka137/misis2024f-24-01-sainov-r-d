@@ -19,7 +19,7 @@ void Rational::simplify() noexcept{
     }
 }
 Rational::Rational() : num(0), denom(1) {}
-explicit Rational::Rational(const std::int32_t numm) noexcept : num(numm), denom(1) {}
+Rational::Rational(const std::int32_t numm) noexcept : num(numm), denom(1) {}
 Rational Rational::operator-() const noexcept{
     return Rational(-num, denom);
 }

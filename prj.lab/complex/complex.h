@@ -33,7 +33,7 @@ struct Complex {
 	std::istream& read(std::istream& istrm) noexcept;
 
 	static const char leftBrace{ '{' };   
-	static const char separator{ ', ' };   
+	static const char separator{ ',' };   
 	static const char rightBrace{ '}' };  
 };
 
