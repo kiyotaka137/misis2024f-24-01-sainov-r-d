@@ -1,10 +1,7 @@
-STAMP: 20241210-064907
-ERROR: file codeforces.id is absent
-ERROR: file codeforces.id is absent
-ERROR: file prj.test/arrayd_doctest.cpp is absent
+STAMP: 20241215-222249
+OK: file codeforces.id is correct
 ERROR: file prj.test/arrayt_doctest.cpp is absent
 ERROR: file prj.test/complex_doctest.cpp is absent
-ERROR: file prj.test/rational_doctest.cpp is absent
 ERROR: file prj.test/complex_test.cpp is absent
 ERROR: file prj.test/stackl_doctest.cpp is absent
 ERROR: file prj.test/queue_doctest.cpp is absent
