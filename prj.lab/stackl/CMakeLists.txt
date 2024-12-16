@@ -1,1 +1,1 @@
-add_library(stackl stack.cpp stack.hpp)
+add_library(stackl stackl.cpp stackl.h)

@@ -6,8 +6,9 @@ class ArrayD {
 public:
 	ArrayD() = default;
 	ArrayD(const std::ptrdiff_t n);
-	ArrayD(const ArrayD& d) = default;
+	ArrayD(const ArrayD& arrd);
 	ArrayD& operator=(const ArrayD& rhs);
+	
 	~ArrayD();
 
 	double& operator[](std::ptrdiff_t ind);

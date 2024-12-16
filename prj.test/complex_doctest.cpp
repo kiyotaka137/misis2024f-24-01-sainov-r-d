@@ -15,4 +15,7 @@ TEST_CASE("complex unit tests") {
 	CHECK(-Complex(12, 3) == Complex(-12, -3));
 	CHECK(Complex(11, 3) != Complex(-12, 3));
 	CHECK(Complex(11, 0) + 2 == Complex(13, 0));
+	CHECK(Complex(1) + Complex(2) == Complex(3));
+	CHECK(Complex(3) - Complex(1) == Complex(2));
+	CHECK(Complex(3) + 2.0 == Complex(5));
 }
