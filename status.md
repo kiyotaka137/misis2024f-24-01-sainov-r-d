@@ -1,11 +1,10 @@
-STAMP: 20241216-070359
+STAMP: 20241216-223622
 OK: file codeforces.id is correct
 ERROR: file prj.test/arrayt_doctest.cpp is absent
-ERROR: file prj.test/complex_doctest.cpp is absent
 ERROR: file prj.test/complex_test.cpp is absent
 ERROR: file prj.test/stackl_doctest.cpp is absent
-ERROR: file prj.test/queue_doctest.cpp is absent
-ERROR: CMake generator failed
+ERROR: file prj.test/queuea_doctest.cpp is absent
+OK: CMake generator successed
 ERROR: invalid file name 0271A
 ERROR: lab complex - test build failed
 ERROR: lab rational - test build failed
