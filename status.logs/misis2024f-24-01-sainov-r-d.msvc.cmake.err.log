@@ -9,91 +9,13 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:639 (_add_library):
   Cannot find source file:
 
-    complex.hpp
-
-  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
-  .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
-  .f95 .f03 .hip .ispc
-Call Stack (most recent call first):
-  prj.lab/complex/CMakeLists.txt:1 (add_library)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:639 (_add_library):
-  Cannot find source file:
-
-    arrat.h
+    arrayt.hpp
 
   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
   .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
   .f95 .f03 .hip .ispc
 Call Stack (most recent call first):
   prj.lab/arrayt/CMakeLists.txt:1 (add_library)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
-  Cannot find source file:
-
-    arrayt_doctest.cpp
-
-  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
-  .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
-  .f95 .f03 .hip .ispc
-Call Stack (most recent call first):
-  prj.test/CMakeLists.txt:4 (add_executable)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
-  Cannot find source file:
-
-    complex_test.cpp
-
-  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
-  .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
-  .f95 .f03 .hip .ispc
-Call Stack (most recent call first):
-  prj.test/CMakeLists.txt:7 (add_executable)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
-  Cannot find source file:
-
-    complex_doctest.cpp
-
-  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
-  .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
-  .f95 .f03 .hip .ispc
-Call Stack (most recent call first):
-  prj.test/CMakeLists.txt:10 (add_executable)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:639 (_add_library):
-  No SOURCES given to target: complex
-Call Stack (most recent call first):
-  prj.lab/complex/CMakeLists.txt:1 (add_library)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:639 (_add_library):
-  No SOURCES given to target: arrayt
-Call Stack (most recent call first):
-  prj.lab/arrayt/CMakeLists.txt:1 (add_library)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
-  No SOURCES given to target: arrayt_doctest
-Call Stack (most recent call first):
-  prj.test/CMakeLists.txt:4 (add_executable)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
-  No SOURCES given to target: complex_test
-Call Stack (most recent call first):
-  prj.test/CMakeLists.txt:7 (add_executable)
-
-
-CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
-  No SOURCES given to target: complex_doctest
-Call Stack (most recent call first):
-  prj.test/CMakeLists.txt:10 (add_executable)
 
 
 CMake Generate step failed.  Build files cannot be regenerated correctly.
