@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 
-#include <rational/rational.h>
+#include "rational/rational.h"
 
 TEST_CASE("rational test 1: constuction") {
 	CHECK(Rational() == Rational(0, 1));

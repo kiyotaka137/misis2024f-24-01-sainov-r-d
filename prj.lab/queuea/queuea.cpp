@@ -1,6 +1,6 @@
 #include <queuea/queuea.h>
 
-QueueA::QueueA(T size): size_(size), tail(0), head(0)
+QueueA::QueueA(T size): size_(size), tail_(0), head_(0)
 {
 	data_ = new int[size_];
 }

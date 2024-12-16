@@ -13,4 +13,6 @@ int main()
                 std::cout << abs(i - 2) + abs(j - 2);
             }
         }
-    } 
+    }
+    return 0;
+}
