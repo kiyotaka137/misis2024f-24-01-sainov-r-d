@@ -83,20 +83,16 @@ std::istream& Rational::input(std::istream& in) {
             if (np < 0 && nq < 0) {
                 num = -np;
                 denom = -nq;
-            }
-            else if (np < 0 && nq > 0 || np > 0 && nq < 0) {
+            }else if (np < 0 && nq > 0 || np > 0 && nq < 0) {
                 num = -std::abs(np);
                 denom = std::abs(nq);
-            }
-            else {
+            }else {
                 num = np;
                 denom = nq;
             }
-        }
-        else
+        }else
             in.setstate(std::ios_base::failbit);
-    }
-    else
+    }else
         in.setstate(std::ios_base::failbit);
     return in;
 }
@@ -113,7 +109,7 @@ Rational operator+(const Rational& lhs, const int32_t rhs) noexcept { return Rat
 Rational operator-(const Rational& lhs, const int32_t rhs) noexcept { return Rational{ lhs } -= rhs; }
 Rational operator*(const Rational& lhs, const int32_t rhs) noexcept { return Rational{ lhs } *= rhs; }
 Rational operator/(const Rational& lhs, const int32_t rhs) { return Rational{ lhs } /= rhs; }
-Rational operator+(const int32_t lhs, const Rational& rhs) noexcept { return operator+(lhs, rhs); }
+Rational operator+(const int32_t lhs, const Rational& rhs) noexcept { return operator+(rhs, lhs); }
 Rational operator-(const int32_t lhs, const Rational& rhs) noexcept { return operator-(lhs, rhs); }
 Rational operator*(const int32_t lhs, const Rational& rhs) noexcept { return operator*(lhs, rhs); }
 Rational operator/(const int32_t lhs, const Rational& rhs) { return operator/(lhs, rhs); }

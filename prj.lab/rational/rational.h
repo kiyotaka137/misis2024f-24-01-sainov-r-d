@@ -10,7 +10,7 @@ class Rational {
 public:
     Rational();
     Rational(const std::int32_t numinator, const std::int32_t denominator);
-    explicit Rational(const std::int32_t numm) noexcept;
+    Rational(const std::int32_t numm) noexcept;
     Rational(const Rational&) = default;
     Rational& operator=(const Rational&) = default;
     ~Rational() = default;

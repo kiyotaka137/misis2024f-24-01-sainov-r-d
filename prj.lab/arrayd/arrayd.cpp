@@ -1,8 +1,10 @@
 #include<cstddef>
 #include<iostream>
 #include<cstring>
-#include<arrayd.h>
 #include<stdexcept>
+
+#include "arrayd/arrayd.h"
+
 
 ArrayD::ArrayD(const std::ptrdiff_t n) : size_(n), capacity_(n) {
 	if (size_ <= 0) {
@@ -16,6 +18,10 @@ ArrayD& ArrayD::operator=(const ArrayD& rhs) {
 		std::memcpy(data_, rhs.data_, size_ * sizeof(*data_));
 	}
 	return *this;
+}
+
+ArrayD::ArrayD(const std::ptrdiff_t n)
+{
 }
 
 ArrayD::~ArrayD()

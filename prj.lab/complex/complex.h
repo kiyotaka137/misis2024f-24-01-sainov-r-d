@@ -28,9 +28,9 @@ struct Complex {
 	Complex& operator/=(const Complex& rhs);
 	Complex& operator/=(const double rhs);
 
-	std::ostream& write(std::ostream& ostrm) const noexcept;
+	std::ostream& write(std::ostream& ostrm) const;
 
-	std::istream& read(std::istream& istrm) noexcept;
+	std::istream& read(std::istream& istrm);
 
 	static const char leftBrace{ '{' };   
 	static const char separator{ ',' };   
@@ -54,6 +54,6 @@ Complex operator/(const Complex& lhs, const double rhs);
 
 Complex operator/(const double lhs, const Complex& rhs);
 
-std::ostream& operator<<(std::ostream& ostrm, const Complex& rhs) noexcept;
-std::istream& operator>>(std::istream& istrm, Complex& rhs) noexcept;
+std::ostream& operator<<(std::ostream& ostrm, const Complex& rhs);
+std::istream& operator>>(std::istream& istrm, Complex& rhs);
 #endif

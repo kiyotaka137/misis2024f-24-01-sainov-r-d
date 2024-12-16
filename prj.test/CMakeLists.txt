@@ -1,6 +1,8 @@
 add_executable(arrayd_doctest arrayd_doctest.cpp)
 target_link_libraries(arrayd_doctest arrayd)
 
+add_executable(complex_doctest complex_doctest.cpp)
+target_link_libraries(complex_doctest complex)
 
 
 add_executable(rational_doctest rational_doctest.cpp)
