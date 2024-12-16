@@ -61,6 +61,7 @@ void ArrayD::Resize(std::ptrdiff_t size) {
 	size_ = size;
 	data_ = newdata;
 	capacity_ = size;
+	delete[] newdata;
 }
 
 void ArrayD::Insert(std::ptrdiff_t ind, const double& elem){

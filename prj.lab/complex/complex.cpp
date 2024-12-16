@@ -106,14 +106,14 @@ std::ostream& Complex::write(std::ostream& os) const {
 	return os;
 }
 std::istream& Complex::read(std::istream& is) {
-	char lbrace;
-	double real = 0.0;
+	char leftbrace;
+	char rightbrace;
 	char c;
 	double imaginary = 0.0;
-	char rbrace;
-	is >> lbrace >> re >> c >> im >> rbrace;
+	double real = 0.0;
+	is >> leftbrace >> re >> c >> im >> rightbrace;
 	if (is.good()) {
-		if (Complex::leftBrace == lbrace && Complex::separator == c && Complex::rightBrace == rbrace) {
+		if (Complex::leftBrace == leftbrace && Complex::separator == c && Complex::rightBrace == rightbrace) {
 			re = real;
 			im = imaginary;
 			normal = true;
