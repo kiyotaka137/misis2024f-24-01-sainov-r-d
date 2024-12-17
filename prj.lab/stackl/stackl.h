@@ -5,12 +5,12 @@
 #include <cstdint>
 class StackL final {
 	using T = uint8_t;
-	Stackl() = default;
+	StackL() = default;
 	StackL(const StackL& src);
 	StackL(StackL&& src) noexcept;
 	~StackL();
 	StackL& operator=(const StackL& src);
-	StackL& operator=(StakL&& src) noexcept;
+	StackL& operator=(StackL&& src) noexcept;
 	[[nodiscard]] bool IsEmpty() const noexcept;
 	void Pop() noexcept;
 	void Push(const T val);

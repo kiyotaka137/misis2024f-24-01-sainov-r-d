@@ -6,20 +6,18 @@
 #include "arrayd/arrayd.h"
 
 
-ArrayD::ArrayD(const std::ptrdiff_t n) : size_(n), capacity_(n) {
+ArrayD::ArrayD(const std::ptrdiff_t n) : size_(n), capacity_(n), data_(new double[n]) {
 	if (size_ < 0) {
 		throw std::invalid_argument("non positive size");
-		data_ = new double[n];
 	}
+	data_ = new double[n];
 }
 
 ArrayD::ArrayD(const ArrayD& arrd){
 	capacity_ = arrd.size_;
 	size_ = arrd.size_;
 	data_ = new double[size_];
-	for (std::ptrdiff_t i = 0; i < arrd.size_; i++) {
-		data_[i] = arrd.data_[i];
-	}
+	std::memcpy(data_, arrd.data_, size_ * sizeof(double));
 }
 
 ArrayD& ArrayD::operator=(const ArrayD & rhs) {
@@ -37,7 +35,7 @@ ArrayD::~ArrayD()
 
 double& ArrayD::operator[](std::ptrdiff_t ind) {
 	if (ind < 0 || size_<=ind) throw (std::exception("ArrayD::operator[] - invalid argument"));
-	return *(data_ + ind);
+	return data_[ind];
 }
 
 double ArrayD::operator[](std::ptrdiff_t ind) const {
@@ -53,10 +51,12 @@ void ArrayD::Resize(std::ptrdiff_t size) {
 	if (size_ <= 0) {
 		throw std::invalid_argument("non positive size");
 	}
-	double* newdata = new double[size];
-	for (std::ptrdiff_t i = 0; i < size_; i++) {
-		newdata[i] = data_[i];
+	if (size <= capacity_) {
+		size_ = size;
+		return;
 	}
+	double* newdata = new double[size];
+	std::memcpy(newdata, data_, size_ * sizeof(double));
 	delete[] data_;
 	size_ = size;
 	data_ = newdata;
@@ -64,23 +64,43 @@ void ArrayD::Resize(std::ptrdiff_t size) {
 	delete[] newdata;
 }
 
-void ArrayD::Insert(std::ptrdiff_t ind, const double& elem){
-	if (ind > size_) {
-		throw(std::exception("out of range"));
+void ArrayD::Remove(std::ptrdiff_t index) {
+	if (index<0 && index>size_) {
+		throw std::out_of_range("out of range");
 	}
-
-	if (size_ == capacity_) {
-		(*this).Resize(capacity_ * 2);
+	else {
+		double last = data_[size_ - 1];
+		this->Resize(size_ - 1);
+		double* temp = new double[size_];
+		for (std::ptrdiff_t i = 0; i < index; i++) {
+			temp[i] = data_[i];
+		}
+		for (std::ptrdiff_t i = index; i < size_ - 1; i++) {
+			temp[i] = data_[i + 1];
+		}
+		temp[size_ - 1] = last;
+		delete[] data_;
+		data_ = temp;
+		temp = nullptr;
 	}
-
-	
 }
 
-void ArrayD::Remove(const std::ptrdiff_t ind)
-{
-	if (ind > size_) throw(std::exception("out of range"));
-	for (ptrdiff_t i = ind; i < size_ - 1; i++) {
-		data_[i] = data_[i + 1];
+void ArrayD::Insert(std::ptrdiff_t index, const double& elem) {
+	if (index<0 && index>size_) {
+		throw std::out_of_range("out of range");
 	}
-	size_ -= 1;
+	else {
+		this->Resize(size_ + 1);
+		double* temp = new double[size_];
+		for (std::ptrdiff_t i = 0; i < index; i++) {
+			temp[i] = data_[i];
+		}
+		temp[index] = elem;
+		for (std::ptrdiff_t i = index + 1; i < size_; i++) {
+			temp[i] = data_[i - 1];
+		}
+		delete[] data_;
+		data_ = temp;
+		temp = nullptr;
+	}
 }
