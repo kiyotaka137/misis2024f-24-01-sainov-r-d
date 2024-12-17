@@ -92,6 +92,7 @@ Complex operator*(const double lhs, const Complex& rhs) noexcept {
 	return Complex(lhs) *= rhs; 
 }
 
+//деление
 Complex operator/(const Complex& lhs, const Complex& rhs) { return Complex(lhs) /= rhs; }
 Complex operator/(const Complex& lhs, const double rhs) { return Complex(lhs) /= rhs; }
 Complex operator/(const double lhs, const Complex& rhs) { return Complex(lhs) /= rhs; }

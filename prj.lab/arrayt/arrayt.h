@@ -39,13 +39,11 @@ ArrayT<T>::ArrayT(const ArrayT<T>& src) : capacity_(src.size_), size_(capacity_)
     std::memcpy(data_.get(), src.data_.get(), src.size_ * sizeof(T));
 }
 
-
 template<class T>
 ArrayT<T>::ArrayT(std::ptrdiff_t n) : capacity_(n), size_(n) {
-    if (n <= 0) throw std::invalid_argument("ArrayT::ArrayT - non positive size");
+    if (n <= 0) throw std::invalid_argument("size<0");
     data_.reset(new T[n]{ T() });
 }
-
 
 template<class T>
 ArrayT<T>& ArrayT<T>::operator=(const ArrayT<T>& rhs) {
@@ -56,26 +54,26 @@ ArrayT<T>& ArrayT<T>::operator=(const ArrayT<T>& rhs) {
 
 template<class T>
 T& ArrayT<T>::operator[](std::ptrdiff_t ind) {
-    if (ind < 0 || ind >= size_) throw std::invalid_argument("ArrayT::ArrayT - out of range");
+    if (ind < 0 || ind >= size_) throw std::invalid_argument("out of range");
     return data_[ind];
 }
 
 template<class T>
 T ArrayT<T>::operator[](std::ptrdiff_t ind) const {
-    if (ind < 0 || ind >= size_) throw std::invalid_argument("ArrayT::ArrayT - out of range");
+    if (ind < 0 || ind >= size_) throw std::invalid_argument("out of range");
     return data_[ind];
 }
 
 
 template<class T>
 void ArrayT<T>::Resize(std::ptrdiff_t size) {
-    if (size < 0) throw std::invalid_argument("ArrayT - negative size");
+    if (size < 0) throw std::invalid_argument("size<0");
 
     if (size > capacity_) {
-        auto ndata = std::make_unique<T[]>(size);
-        std::copy(data_.get(), data_.get() + size_, ndata.get());
-        data_.swap(ndata);
-        ndata.reset();
+        auto newdata = std::make_unique<T[]>(size);
+        std::copy(data_.get(), data_.get() + size_, newdata.get());
+        data_.swap(newdata);
+        newdata.reset();
         capacity_ = size;
     }
     else {
@@ -89,7 +87,7 @@ void ArrayT<T>::Resize(std::ptrdiff_t size) {
 
 template<class T>
 void ArrayT<T>::Insert(std::ptrdiff_t index, const T elem) {
-    if (index < 0 || index > size_) throw std::invalid_argument("ArrayT - invalid argument");
+    if (index < 0 || index > size_) throw std::invalid_argument("invalid argument");
 
     this->Resize(size_ + 1);
 
@@ -100,7 +98,7 @@ void ArrayT<T>::Insert(std::ptrdiff_t index, const T elem) {
 
 template<class T>
 void ArrayT<T>::Remove(const std::ptrdiff_t index) {
-    if (index < 0 || index >= size_) throw std::invalid_argument("ArrayT - invalid argument");
+    if (index < 0 || index >= size_) throw std::invalid_argument("invalid argument");
 
 
     std::memmove(data_.get() + index, data_.get() + index + 1, (size_ - index) * sizeof(T));
