@@ -6,3 +6,22 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   CMake that the project does not need compatibility with older versions.
 
 
+CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
+  Cannot find source file:
+
+    0271a.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
+  .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
+  .f95 .f03 .hip .ispc
+Call Stack (most recent call first):
+  prj.codeforces/CMakeLists.txt:14 (add_executable)
+
+
+CMake Error at D:/programs/vcpkg/scripts/buildsystems/vcpkg.cmake:598 (_add_executable):
+  No SOURCES given to target: 0271a
+Call Stack (most recent call first):
+  prj.codeforces/CMakeLists.txt:14 (add_executable)
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
