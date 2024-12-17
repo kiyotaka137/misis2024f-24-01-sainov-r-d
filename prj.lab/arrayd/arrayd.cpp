@@ -2,7 +2,7 @@
 #include<iostream>
 #include<cstring>
 #include<stdexcept>
-
+#include<memory>
 #include "arrayd/arrayd.h"
 
 
@@ -85,21 +85,12 @@ void ArrayD::Remove(std::ptrdiff_t index) {
 }
 
 void ArrayD::Insert(std::ptrdiff_t index, const double& elem) {
-	if (index<0 && index>size_) {
-		throw std::out_of_range("out of range");
+	if (index < 0 || size_ < index) {
+		throw std::invalid_argument("ArrayD::Insert - invalid index");
 	}
-	else {
-		this->Resize(size_ + 1);
-		double* temp = new double[size_];
-		for (std::ptrdiff_t i = 0; i < index; i++) {
-			temp[i] = data_[i];
-		}
-		temp[index] = elem;
-		for (std::ptrdiff_t i = index + 1; i < size_; i++) {
-			temp[i] = data_[i - 1];
-		}
-		delete[] data_;
-		data_ = temp;
-		temp = nullptr;
+	Resize(size_ + 1);
+	if (index != Size() - 1) {
+		std::memmove(data_ + index + 1, data_ + index, (size_ - index - 1) * sizeof(double));
 	}
+	data_[index] = elem;
 }

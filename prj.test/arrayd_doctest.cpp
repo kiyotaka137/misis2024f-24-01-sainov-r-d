@@ -2,6 +2,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 
+
 TEST_CASE("[arrayd] - constructors and size") {
     ArrayD a(5);
     CHECK(a.Size() == 5);

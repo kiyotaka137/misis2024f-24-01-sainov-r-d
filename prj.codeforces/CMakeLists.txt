@@ -1,6 +1,6 @@
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(0004a 0004a.cpp)  
+add_executable(0004a 0004a.cpp)
 add_executable(0263a 0263a.cpp)
 add_executable(0276a 0276a.cpp)
 add_executable(0617a 0617a.cpp)
