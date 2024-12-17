@@ -14,9 +14,7 @@ private:
     std::unique_ptr<T[]> data_{ nullptr };
 public:
     ArrayT() = default;
-
     ArrayT(const ArrayT& d);
-
     ArrayT(std::ptrdiff_t n);
     ArrayT& operator=(const ArrayT& d);
 

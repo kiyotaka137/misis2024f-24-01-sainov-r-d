@@ -85,7 +85,7 @@ Rational& Rational::operator*=(const Rational& rhs) noexcept {
     denom_ = denom_ * rhs.denom_;
     simplify();
     return *this;
-     };
+};
 
 Rational& Rational::operator/=(const Rational& rhs) { 
     if (rhs.num_ == 0) {

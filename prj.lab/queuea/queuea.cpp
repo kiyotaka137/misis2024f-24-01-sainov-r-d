@@ -15,12 +15,12 @@ std::ptrdiff_t QueueA::Count() const {
 QueueA& QueueA::operator=(const QueueA& src) {
     if (this != &src) {
         std::ptrdiff_t count = src.Count();
-        if (0 == count) {
+        if (count ==0) {
             head_ = -1;
         }
         else {
             if (size_ < count) {
-                size_ = (count + 4) / 4 * 4;
+                size_ =count + count%4 + 4;
                 delete[] data_;
                 data_ = new T[size_];
             }
@@ -43,7 +43,7 @@ QueueA::QueueA(const QueueA& src) {
         std::ptrdiff_t count = src.Count();
         head_ = 0;
         tail_ = count - 1;
-        size_ = (count + 4) / 4 * 4;
+        size_ = count + count % 4 + 4;
         data_ = new T[size_];
         if (src.head_ < src.tail_) {
             std::copy(src.data_ + src.head_, src.data_ + src.tail_ + 1, data_);
@@ -52,6 +52,7 @@ QueueA::QueueA(const QueueA& src) {
             std::copy(src.data_ + src.head_, src.data_ + src.size_, data_);
             std::copy(src.data_, src.data_ + src.tail_ + 1, data_ + src.size_ - src.head_);
         }
+        
     }
 }
 
@@ -93,7 +94,7 @@ void QueueA::Pop() noexcept {
 }
 
 void QueueA::Push(const T val) {
-    if (nullptr == data_) {
+    if (data_==nullptr) {
         size_ = 2;
         data_ = new T[size_];
     }
@@ -103,17 +104,16 @@ void QueueA::Push(const T val) {
     }
     else {
         if (head_ == (tail_ + 1) % size_) {
-            // resize
-            T* buf = new T[size_ * 2];
-            std::swap(buf, data_);
+            T* buffer = new T[size_ * 2];
+            std::swap(buffer, data_);
             if (head_ < tail_) {
-                std::copy(buf + head_, buf + tail_ + 1, data_);
+                std::copy(buffer + head_, buffer + tail_ + 1, data_);
             }
             else {
-                std::copy(buf + head_, buf + size_, data_);
-                std::copy(buf, buf + tail_ + 1, data_ + tail_ - head_);
+                std::copy(buffer + head_, buffer + size_, data_);
+                std::copy(buffer, buffer + tail_ + 1, data_ + tail_ - head_);
             }
-            delete[] buf;
+            delete[] buffer;
             size_ *= 2;
             tail_ = Count();
         }
@@ -126,14 +126,14 @@ void QueueA::Push(const T val) {
 
 QueueA::T& QueueA::Top() {
     if (IsEmpty()) {
-        throw std::logic_error("QueueA - try get top form empty queue.");
+        throw std::logic_error("QueueA is empty");
     }
     return data_[head_];
 }
 
 const QueueA::T& QueueA::Top() const {
     if (IsEmpty()) {
-        throw std::logic_error("QueueA - try get top form empty queue.");
+        throw std::logic_error("QueueA is empty");
     }
     return data_[head_];
 }
