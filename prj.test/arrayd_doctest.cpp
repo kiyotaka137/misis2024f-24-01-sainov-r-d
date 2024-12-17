@@ -3,8 +3,8 @@
 #include <doctest/doctest.h>
 
 TEST_CASE("[arrayd] - constructors and size") {
-    ArrayD a(9);
-    CHECK(a.Size() == 9);
+    ArrayD a(5);
+    CHECK(a.Size() == 5);
     for (ptrdiff_t i = 0; i < a.Size(); i++) {
         CHECK(a[i] == 0.0);
     }
@@ -14,19 +14,16 @@ TEST_CASE("[arrayd] - constructors and size") {
 }
 
 TEST_CASE("[arrayd] - element access and assignment") {
-    ArrayD a(3);
-    a[0] = 1.11;
-    a[1] = 2.12;
-    a[2] = 3.13;
+    ArrayD a(2);
+    a[0] = 1.00;
+    a[1] = 2.00;
 
-    CHECK(a[0] == 1.11);
-    CHECK(a[1] == 2.12);
-    CHECK(a[2] == 3.13);
+    CHECK(a[0] == 1.00);
+    CHECK(a[1] == 2.00);
 
     const ArrayD b(a);
-    CHECK(b[0] == 1.11);
-    CHECK(b[1] == 2.12);
-    CHECK(b[2] == 3.13);
+    CHECK(b[0] == 1.00);
+    CHECK(b[1] == 2.00);
 }
 
 TEST_CASE("[arrayd] - resize") {
@@ -52,10 +49,10 @@ TEST_CASE("[arrayd] - resize") {
 TEST_CASE("[arrayd] - insert") {
     ArrayD a(3);
     a[0] = 1.0;
-    a[1] = 3.0;
+    a[1] = 2.0;
     a[2] = 4.0;
 
-    a.Insert(1, 2.0);
+    a.Insert(2, 3.0);
     CHECK(a.Size() == 4);
     CHECK(a[0] == 1.0);
     CHECK(a[1] == 2.0);
@@ -101,23 +98,26 @@ TEST_CASE("[arrayd] - remove") {
 }
 
 TEST_CASE("[arrayd] - copy constructor and assignment") {
-    ArrayD a(3);
-    a[0] = 1.0;
-    a[1] = 2.0;
-    a[2] = 3.0;
+    ArrayD a(4);
+    a[0] = 100.73;
+    a[1] = 20.5;
+    a[2] = 67.3;
+    a[3] = 5.0;
 
     ArrayD b = a;
-    CHECK(b.Size() == 3);
-    CHECK(b[0] == 1.0);
-    CHECK(b[1] == 2.0);
-    CHECK(b[2] == 3.0);
+    CHECK(b.Size() == 4);
+    CHECK(b[0] == 100.73);
+    CHECK(b[1] == 20.5);
+    CHECK(b[2] == 67.3);
+    CHECK(b[3] == 5.0);
 
     ArrayD c;
     c = a;
-    CHECK(c.Size() == 3);
-    CHECK(c[0] == 1.0);
-    CHECK(c[1] == 2.0);
-    CHECK(c[2] == 3.0);
+    CHECK(c.Size() == 4);
+    CHECK(c[0] == 100.73);
+    CHECK(c[1] == 20.5);
+    CHECK(c[2] == 67.3);
+    CHECK(c[3] == 5.0);
 }
 
 TEST_CASE("[arrayd] - edge cases") {

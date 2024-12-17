@@ -1,8 +1,8 @@
 // 2024 by Polevoi Dmitry under Unlicense
 
 #pragma once
-#ifndef ARRAYT_ARRAYT_HPP_20241202
-#define ARRAYT_ARRAYT_HPP_20241202
+#ifndef ARRAYT_HPP
+#define ARRAYT_HPP
 
 #include <cstddef>
 #include <memory>
@@ -14,7 +14,6 @@ public:
     ArrayT() = default;
     ArrayT(const ArrayT&);
 
-    //! \param size - начальный размер, 0 < size
     ArrayT(const std::ptrdiff_t size);
 
     ~ArrayT() = default;
@@ -23,23 +22,19 @@ public:
 
     [[nodiscard]] std::ptrdiff_t Size() const noexcept { return size_; }
 
-    //! \param size - новый размер, 0 <= size
     void Resize(const std::ptrdiff_t size);
 
-    //! \param idx - индекс  элемента, 0 <= idx < Size()
     [[nodiscard]] T& operator[](const std::ptrdiff_t idx);
     [[nodiscard]] const T& operator[](const std::ptrdiff_t idx) const;
 
-    //! \param idx - индекс вставляемого элемента, 0 <= idx <= size 
     void Insert(const std::ptrdiff_t idx, const double val);
 
-    //! \param idx - индекс удаляемого элемента, 0 <= idx < size 
     void Remove(const std::ptrdiff_t idx);
 
 private:
-    std::ptrdiff_t capacity_ = 0;  //!< размер буффера
-    std::ptrdiff_t size_ = 0;      //!< число элементов в массиве
-    std::unique_ptr<T[]> data_;      //!< буффер
+    std::ptrdiff_t capacity_ = 0;  
+    std::ptrdiff_t size_ = 0;      
+    std::unique_ptr<T[]> data_;      
 };
 
 
@@ -136,4 +131,4 @@ void ArrayT<T>::Remove(const std::ptrdiff_t idx) {
 }
 
 
-#endif // !ArrayT_ArrayT_HPP_20241202
+#endif 

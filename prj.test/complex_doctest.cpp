@@ -18,4 +18,8 @@ TEST_CASE("complex unit tests") {
 	CHECK(Complex(1) + Complex(2) == Complex(3));
 	CHECK(Complex(3) - Complex(1) == Complex(2));
 	CHECK(Complex(3) + 2.0 == Complex(5));
+	Complex b;
+	Complex c{ 1.0,1.0 };
+	b = c;
+	CHECK(b == Complex{ 1.0,1.0 });
 }
