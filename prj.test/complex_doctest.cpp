@@ -21,5 +21,8 @@ TEST_CASE("complex unit tests") {
 	Complex b;
 	Complex c{ 1.0,1.0 };
 	b = c;
+	c += b;
 	CHECK(b == Complex{ 1.0,1.0 });
+	CHECK(c == Complex(2.0, 2.0));
+
 }
