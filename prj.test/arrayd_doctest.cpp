@@ -133,4 +133,5 @@ TEST_CASE("[arrayd] - edge cases") {
     ArrayD c(10);
     CHECK_NOTHROW(c[9] = 1.0);
     CHECK_THROWS_AS(c[10] = 2.0, std::exception);
+    a.Size();
 }

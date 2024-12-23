@@ -67,7 +67,7 @@ QueueA::QueueA(QueueA&& src) noexcept {
     Swap(std::move(src));
 }
 
-QueueA& QueueA::operator=(QueueA&& src) {
+QueueA& QueueA::operator=(QueueA&& src) noexcept {
     if (this != &src) {
         Swap(std::move(src));
     }

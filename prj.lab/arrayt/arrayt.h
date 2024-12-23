@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ARRAYT_ARRAYT_HPP_20241202
-#define ARRAYT_ARRAYT_HPP_20241202
+#ifndef ARRAYT_ARRAYT_H_20241202
+#define ARRAYT_ARRAYT_H_20241202
 
 #include <cstddef>
 #include <memory>

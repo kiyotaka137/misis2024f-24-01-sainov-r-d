@@ -16,7 +16,7 @@ public:
 	double& operator[](std::ptrdiff_t ind);
 	double operator[](std::ptrdiff_t ind) const;
 
-	std::ptrdiff_t Size() const;
+	[[nodiscard]] std::ptrdiff_t Size() const;
 
 	void Resize(std::ptrdiff_t size);
 	void Insert(std::ptrdiff_t index, const double& elem);

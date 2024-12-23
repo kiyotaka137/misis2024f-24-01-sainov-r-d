@@ -1,6 +1,6 @@
 #pragma once
-#ifndef QUEUEA_HPP
-#define QUEUEA_HPP
+#ifndef QUEUEA_H
+#define QUEUEA_H
 #include <cstddef>
 #include <cstdint>
 class QueueA final {
@@ -11,7 +11,7 @@ public:
 	QueueA(QueueA&& scr) noexcept;
 	~QueueA();
 	QueueA& operator=(const QueueA& scr);
-	QueueA& operator=(QueueA&& scr);
+	QueueA& operator=(QueueA&& scr) noexcept;
 	void Pop() noexcept;
 	void Push(const T value);
 	bool IsEmpty() const noexcept;

@@ -1,5 +1,5 @@
-#ifndef RATIONAL_HPP
-#define RATIONAL_HPP
+#ifndef RATIONAL_H
+#define RATIONAL_H
 #include<iostream>
 #include<sstream>
 #include<cstdint>

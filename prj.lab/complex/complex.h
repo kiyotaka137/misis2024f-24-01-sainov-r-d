@@ -1,5 +1,5 @@
-#ifndef COMPLEX_HPP
-#define COMPLEX_HPP
+#ifndef COMPLEX_H
+#define COMPLEX_H
 #include <iosfwd>
 struct Complex {
 	double re{ 0.0 };

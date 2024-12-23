@@ -1,6 +1,6 @@
 #pragma once
-#ifndef STACKL_HPP
-#define STACK_HPP
+#ifndef STACKL_H
+#define STACKL_H
 #include <cstddef>
 #include <cstdint>
 class StackL final {
@@ -11,13 +11,13 @@ class StackL final {
 	~StackL();
 	StackL& operator=(const StackL& src);
 	StackL& operator=(StackL&& src) noexcept;
-	[[nodiscard]] bool IsEmpty() const noexcept;
+	bool IsEmpty() const noexcept;
 	void Pop() noexcept;
 	void Push(const T val);
 
-	[[nodiscard]] T& Top()&;
+	T& Top()&;
 
-	[[nodiscard]] const T& Top() const&;
+	const T& Top() const&;
 
 	void Clear() noexcept;
 
