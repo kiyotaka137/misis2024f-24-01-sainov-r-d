@@ -12,3 +12,8 @@ target_link_libraries(arrayt_doctest arrayt)
 
 add_executable(complex_test complex_test.cpp)
 target_link_libraries(complex_test complex)
+
+add_executable(queuea_doctest queuea_doctest.cpp)
+target_link_libraries(queuea_doctest queuea)
+
+

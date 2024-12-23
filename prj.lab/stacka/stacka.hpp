@@ -1,6 +1,6 @@
 #pragma once
-#ifndef StackA_StackA_H_20241203
-#define StackA_StackA_H_20241203
+#ifndef STACKA_H
+#define STACKA_H
 
 #include <cstddef>
 #include <cstdint>
@@ -13,7 +13,8 @@ public:
     StackA(const StackA& src);
     StackA(StackA&& src);
     ~StackA();
-    StackA operator=()
+    StackA& operator=(const StackA& src);
+    StackA& operator=(StackA&& src) noexcept;
     bool IsEmpty() const noexcept;
     void Pop() noexcept;
     void Push(const T val);

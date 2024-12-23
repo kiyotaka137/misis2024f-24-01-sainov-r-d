@@ -1,5 +1,5 @@
 // 2024 by Polevoi Dmitry under Unlicense
-#include <complex/complex.h>
+#include <complex/complex.hpp>
 
 #include <iostream>
 

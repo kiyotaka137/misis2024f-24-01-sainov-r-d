@@ -1,6 +1,6 @@
 #pragma once
 #ifndef QUEUEA_H
-#define QUEUEA_H
+#define QUEUEA_H 
 #include <cstddef>
 #include <cstdint>
 class QueueA final {

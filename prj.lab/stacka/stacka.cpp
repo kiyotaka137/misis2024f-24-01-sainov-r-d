@@ -1,20 +1,19 @@
-#include "stacka.h"
+#include <stacka/stacka.hpp>
 #include< memory>
 #include<stdexcept>
 #include<algorithm>
 StackA::StackA(const StackA& src)
 {
 	data_ = new T[src.size_];
-	std::copy(src, src + src.head_, data_);
-}
-StackA::StackA(StackA&& src)
-{
-	std::move(src);
+	std::copy(src.data_, src.data_ + src.head_, data_);
 }
 StackA::~StackA()
 {
 	delete[] data_;
 }
+
+
+
 
 bool StackA::IsEmpty() const noexcept
 {

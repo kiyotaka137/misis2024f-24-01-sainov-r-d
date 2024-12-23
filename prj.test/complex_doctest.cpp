@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 
-#include "complex/complex.h"
+#include "complex/complex.hpp"
 
 TEST_CASE("complex unit tests") {
 	CHECK(Complex() == Complex(0.0, 0.0));

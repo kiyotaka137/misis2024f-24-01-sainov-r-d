@@ -1,5 +1,5 @@
 
-#include <queuea/queuea.h>
+#include <queuea/queuea.hpp>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>

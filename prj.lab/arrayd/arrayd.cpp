@@ -3,7 +3,7 @@
 #include<cstring>
 #include<stdexcept>
 #include<memory>
-#include "arrayd/arrayd.h"
+#include <arrayd/arrayd.hpp>
 
 
 ArrayD::ArrayD(const std::ptrdiff_t n)

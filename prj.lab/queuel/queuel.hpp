@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #ifndef QUEUEL_H
 #define QUEUEL_H
 #include <cstddef>
@@ -26,3 +26,4 @@ private:
 	Node* head_ = nullptr;
 	Node* tail_ = nullptr
 };
+#endif*/

@@ -1,4 +1,4 @@
-#include <queuea/queuea.h>
+#include <queuea/queuea.hpp>
 
 #include <algorithm>
 #include <stdexcept>

@@ -1,53 +1,31 @@
-#include "queuel.h"
+/*#include <queuel/queuel.hpp>
+#include<algorithm>
 
-QueueL::QueueL(const QueueL& scr)
-{
-	if (!scr.IsEpmty()) {
-		head_ = new Node{ src.head_->val };
-		Node* p_src = src.head_;
-		Node* p_dst = head_;
-		while (p_src->next) {
-			p_dst->next = new Node{ p_src->next->val };
-			tail_ = p_dst;
-			p_src = p_src->next;
-			p_dst = p_dst->next;
-		}
-	}
-}
 
-QueueL::QueueL(QueueL&& scr) noexcept // не доделал
-{
-	std::swap(head_, scr.head_);
-	std::swap(tail_, scr.tail_);
-}
+
 
 
 QueueL& QueueL::operator=(const QueueL& scr) //не доделал 
 {
-	if (this != &src) {
-		if (src.IsEmpty()) {
+	if (this != &scr) {
+		if (scr.IsEmpty()) {
 			Clear();
 		}
 		else {
-			Node* p_src = src.head_;
+			Node* p_src = scr.head_;
 			if (IsEmpty()) {
-				head_ = new Node{ src.head_->val };
+				head_ = new Node{ scr.head_->val };
 				tail_ = head_;
 			}
 			else {
-				head_->val = src.head_->val;
+				head_->val = scr.head_->val;
 				tail_ = head_;
 			}
 			Node* p_dst = head_;
 
 		}
 }
-& QueueL::operator=(QueueL&& scr) noexcept
-{
-	std::swap(head_, src.head_); 
-	std::swap(tail_, src.tail_);
-	return *this;
-}
+
 
 void QueueL::Pop() noexcept
 {
@@ -93,5 +71,5 @@ void QueueL::Clear() noexcept
 	while (!IsEmpty()) {
 		Pop();
 	}
-}
+}*/
 
