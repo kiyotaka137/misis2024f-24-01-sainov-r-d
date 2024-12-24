@@ -7,17 +7,15 @@ class StackL final {
 	using T = uint8_t;
 	StackL() = default;
 	StackL(const StackL& src);
-	StackL(StackL&& src) noexcept;
-	~StackL();
+	~StackL() = default;
 	StackL& operator=(const StackL& src);
-	StackL& operator=(StackL&& src) noexcept;
 	bool IsEmpty() const noexcept;
 	void Pop() noexcept;
 	void Push(const T val);
 
-	T& Top()&;
+	T& Top();
 
-	const T& Top() const&;
+	const T& Top() const;
 
 	void Clear() noexcept;
 

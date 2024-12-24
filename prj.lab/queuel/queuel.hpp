@@ -1,29 +1,26 @@
-/*#pragma once
+#pragma once
 #ifndef QUEUEL_H
 #define QUEUEL_H
 #include <cstddef>
 #include <cstdint>
 class QueueL final {
 public:
-	using T = std::uint8_t;
 	QueueL() = default;
-	QueueL(const QueueL& scr);
-	QueueL(QueueL&& scr) noexcept;
+	QueueL(const QueueL& src);
 	~QueueL() = default;
-	QueueL& operator=(const QueueL& scr);
-	QueueL& operator=(QueueL&& scr) noexcept;
+	QueueL& operator=(const QueueL& src);
 	void Pop() noexcept;
-	void Push(const T value);
+	void Push(const float value);
 	bool IsEmpty() const noexcept;
-	T& Top();
-	const T& Top() const;
+	float& Top();
+	const float& Top() const;
 	void Clear() noexcept;
 private:
 	struct Node {
-		T val = T();
+		float val = float();
 		Node* next = nullptr;
 	};
 	Node* head_ = nullptr;
-	Node* tail_ = nullptr
+	Node* tail_ = nullptr;
 };
-#endif*/
+#endif

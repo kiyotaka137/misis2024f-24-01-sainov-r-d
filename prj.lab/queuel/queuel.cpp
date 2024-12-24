@@ -1,34 +1,42 @@
-/*#include <queuel/queuel.hpp>
+#include <queuel/queuel.hpp>
 #include<algorithm>
 
 
 
 
 
-QueueL& QueueL::operator=(const QueueL& scr) //не доделал 
-{
-	if (this != &scr) {
-		if (scr.IsEmpty()) {
-			Clear();
-		}
-		else {
-			Node* p_src = scr.head_;
-			if (IsEmpty()) {
-				head_ = new Node{ scr.head_->val };
-				tail_ = head_;
-			}
-			else {
-				head_->val = scr.head_->val;
-				tail_ = head_;
-			}
-			Node* p_dst = head_;
 
+QueueL::QueueL(const QueueL& src)
+{
+	if (!src.IsEmpty()) {
+		head_ = new Node{ src.head_->val };
+		Node* p_src = src.head_;
+		Node* p_dst = head_;
+		while (p_src->next) {
+			p_dst->next = new Node{ p_src->next->val };
+			p_src = p_src->next;
+			p_dst = p_dst->next;
 		}
+	}
 }
 
-
-void QueueL::Pop() noexcept
+QueueL& QueueL::operator=(const QueueL& src)
 {
+	if (this == &src) {
+		return *this;
+	}
+
+	Clear();
+
+	Node* current = src.head_;
+	while (current != nullptr) {
+		Push(current->val);
+		current = current->next;
+	}
+	return *this;
+}
+
+void QueueL::Pop() noexcept{
 	if (!IsEmpty()) {
 		Node* deleted = head_;
 		head_ = head_->next;
@@ -36,13 +44,16 @@ void QueueL::Pop() noexcept
 	}
 }
 
-void QueueL::Push(const T value)
-{	
-	if (IsEmpty()) {
-		head_.val = value;
-		tail_ = new Node{ value, head_ };
+void QueueL::Push(const float value){	
+	Node* newNode = new Node{ value, nullptr };
+	if (tail_ == nullptr) {
+		head_ = newNode;
+		tail_ = newNode;
 	}
-	tail_ = new Node{ value, tail_ };
+	else {
+		tail_->next = newNode;
+		tail_ = newNode;
+	}
 }
 
 bool QueueL::IsEmpty() const noexcept
@@ -50,16 +61,14 @@ bool QueueL::IsEmpty() const noexcept
 	return (head_ == nullptr && tail_== nullptr);
 }
 
-T& QueueL::Top()
-{
+float& QueueL::Top(){
 	if (IsEmpty()) {
 		throw(std::exception("Top - queue is Empty"));
 	}
 	return head_->val;
 }
 
-const T& QueueL::Top() const
-{
+const float& QueueL::Top() const{
 	if (IsEmpty()) {
 		throw(std::exception("Top - queue is Empty"));
 	}
@@ -71,5 +80,5 @@ void QueueL::Clear() noexcept
 	while (!IsEmpty()) {
 		Pop();
 	}
-}*/
+}
 

@@ -14,8 +14,32 @@ StackL::StackL(const StackL& src) {
         }
     }
 }
-StackL& StackL::operator=(StackL&& src) noexcept {
-    std::swap(head_, src.head_);
+
+StackL& StackL::operator=(const StackL& src) {
+    if (this == &src) {
+        return *this; 
+    }
+
+    Clear();
+
+    Node* currentsrc = src.head_;
+    Node* tail = nullptr; 
+
+    while (currentsrc != nullptr) {
+        Node* newNode = new Node;
+        newNode->val = currentsrc->val;
+        newNode->next = nullptr;
+
+        if (head_ == nullptr) { 
+            head_ = newNode;
+            tail = head_; 
+        }
+        else {
+            tail = newNode;
+        }
+        currentsrc = currentsrc->next;
+    }
+
     return *this;
 }
 
@@ -33,15 +57,14 @@ void StackL::Push(const T val) {
     head_ = new Node{ val, head_ };
 }
 
-T& StackL::Top()&{
+T& StackL::Top() {
     if (IsEmpty()) {
         throw(std::exception("Top - stack is empty"));
     }
     return head_->val;
 }
 
-const T& StackL::Top() const&
-{
+const T& StackL::Top() const {
     if (IsEmpty()) {
         throw(std::exception("Top - stack is empty"));
     }

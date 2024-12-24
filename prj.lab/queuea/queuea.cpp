@@ -56,23 +56,7 @@ QueueA::QueueA(const QueueA& src) {
     }
 }
 
-void QueueA::Swap(QueueA&& src) noexcept {
-    std::swap(size_, src.size_);
-    std::swap(data_, src.data_);
-    std::swap(head_, src.head_);
-    std::swap(tail_, src.tail_);
-}
 
-QueueA::QueueA(QueueA&& src) noexcept {
-    Swap(std::move(src));
-}
-
-QueueA& QueueA::operator=(QueueA&& src) noexcept {
-    if (this != &src) {
-        Swap(std::move(src));
-    }
-    return *this;
-}
 
 QueueA::~QueueA() {
     delete[] data_;

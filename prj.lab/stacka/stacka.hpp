@@ -11,10 +11,8 @@ public:
 public:
     StackA() = default;
     StackA(const StackA& src);
-    StackA(StackA&& src);
     ~StackA();
     StackA& operator=(const StackA& src);
-    StackA& operator=(StackA&& src) noexcept;
     bool IsEmpty() const noexcept;
     void Pop() noexcept;
     void Push(const T val);
