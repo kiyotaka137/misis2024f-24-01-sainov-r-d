@@ -9,12 +9,8 @@
 ArrayD::ArrayD(const std::ptrdiff_t n)
 	:size_(n)
 	,capacity_(n){
-	if (size_ < 0) {
+	if (size_ <= 0) {
 		throw std::invalid_argument("non positive size");
-	}
-	if (size_ == 0) {
-		data_ = new double[capacity_];
-		return;
 	}
 	data_ = new double[capacity_] {0.0};
 }
@@ -33,21 +29,21 @@ ArrayD& ArrayD::operator=(const ArrayD& rhs) {
 	}
 	return *this;
 }
-
 ArrayD::~ArrayD()
 {
 	delete[] data_;
 }
-
 double& ArrayD::operator[](std::ptrdiff_t ind) {
 	if (ind < 0 || size_<=ind) throw (std::exception("ArrayD::operator[] - invalid argument"));
 	return data_[ind];
 }
-
-double ArrayD::operator[](std::ptrdiff_t ind) const {
-	if (ind < 0 || size_ <= ind) throw (std::exception("ArrayD::operator[] - invalid argument"));
-	return *(data_+ind);
+double ArrayD::operator[](const std::ptrdiff_t ind) const {
+	if (ind < 0 || size_ <= ind) {
+		throw std::invalid_argument("ArrayD::operator[] - invalid index");
+	}
+	return data_[ind];
 }
+
 
 std::ptrdiff_t ArrayD::Size() const {
 	return size_;
@@ -75,12 +71,13 @@ void ArrayD::Resize(const std::ptrdiff_t size) {
 }
 
 void ArrayD::Remove(std::ptrdiff_t index) {
-	if (index<0 && index>size_) {
+	if (index<0 || index<=size_) {
 		throw std::out_of_range("out of range");
 	}
 	if (index != size_ - 1) {
 		std::memmove(data_ + index, data_ + index + 1, (size_ - index) * sizeof(double));
 	}
+
 	Resize(size_ - 1);
 }
 
@@ -89,7 +86,7 @@ void ArrayD::Insert(std::ptrdiff_t index, const double& elem) {
 		throw std::invalid_argument("ArrayD::Insert - invalid index");
 	}
 	Resize(size_ + 1);
-	if (index != Size() - 1) {
+	if (index != size_ - 1) {
 		std::memmove(data_ + index + 1, data_ + index, (size_ - index - 1) * sizeof(double));
 	}
 	data_[index] = elem;

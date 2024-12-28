@@ -3,7 +3,7 @@
 
 #include "complex/complex.hpp"
 
-TEST_CASE("complex unit tests") {
+TEST_CASE("[complex] - complex unit tests") {
 	CHECK(Complex() == Complex(0.0, 0.0));
 	CHECK(Complex(3.0) == Complex(2.0, 0.0) + Complex(1.0, 0.0));
 	CHECK(Complex(2.0) == Complex(2.0, 0.0));
@@ -24,5 +24,26 @@ TEST_CASE("complex unit tests") {
 	c += b;
 	CHECK(b == Complex{ 1.0,1.0 });
 	CHECK(c == Complex(2.0, 2.0));
+	CHECK(b != c);
+}
+TEST_CASE("[complex] - test -=") {
+	Complex com1{ 1.0,1.0 };
+	Complex com2{ 1.0,1.0 };
+	com1 -= com2;
+	CHECK(com1 == Complex{ 0.0,0.0 });
+	double p = -1.0;
+	com1 -= p;
+	CHECK(com1 == Complex{1.0,0.0});
+	CHECK(com1 != Complex{ 1.0,1.0 });
+	com1  = p + com1;
+}
+TEST_CASE("[complex] - test +=") {
 
 }
+TEST_CASE("[complex] - test *=") {
+
+}
+TEST_CASE("[complex] - test /=") {
+
+}
+

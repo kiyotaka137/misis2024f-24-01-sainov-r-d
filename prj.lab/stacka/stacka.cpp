@@ -1,5 +1,5 @@
 #include <stacka/stacka.hpp>
-#include< memory>
+#include<memory>
 #include<stdexcept>
 #include<algorithm>
 StackA::StackA(const StackA& src)

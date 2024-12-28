@@ -14,8 +14,7 @@ public:
 	~ArrayD();
 
 	double& operator[](std::ptrdiff_t ind);
-	double operator[](std::ptrdiff_t ind) const;
-
+	double ArrayD::operator[](const std::ptrdiff_t ind) const;
 	[[nodiscard]] std::ptrdiff_t Size() const;
 
 	void Resize(std::ptrdiff_t size);
