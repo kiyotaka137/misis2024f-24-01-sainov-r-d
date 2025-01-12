@@ -1,3 +1,4 @@
+#pragma once
 #ifndef ARRAYD_H
 #define ARRAYD_H
 #include <cstddef>

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef COMPLEX_H
 #define COMPLEX_H
 #include <iosfwd>

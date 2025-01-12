@@ -1,9 +1,10 @@
+#include "arrayd/arrayd.hpp"
 #include<cstddef>
 #include<iostream>
 #include<cstring>
 #include<stdexcept>
 #include<memory>
-#include <arrayd/arrayd.hpp>
+
 
 
 ArrayD::ArrayD(const std::ptrdiff_t n)
@@ -75,7 +76,7 @@ void ArrayD::Remove(std::ptrdiff_t index) {
 		throw std::out_of_range("out of range");
 	}
 	if (index != size_ - 1) {
-		std::memmove(data_ + index, data_ + index + 1, (size_ - index) * sizeof(double));
+		std::memmove(data_ + index, data_ + index + 1, (size_ - index - 1) * sizeof(double));
 	}
 
 	Resize(size_ - 1);
